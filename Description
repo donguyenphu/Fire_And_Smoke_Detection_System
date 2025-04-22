@@ -1,0 +1,14 @@
+**Required Materials:
+-1 Arduino uno R3
+-1 Mini Breadboard 400 holes
+-1 Mq-2 Smoke Sensor Module
+-1 Flame Sensor Module
+-1 Buzzer
+-1 Single Channel Relay 5v
+-1 Mini DC Submersible Water
+-3 Male to Male Jumper Wires
+-9 Female to Male Jumper Wiress
+**Mechanism: 
+-When smoke goes in, the Mq-2 Smoke Sensor will detect
+-When flame or fire goes in, the Flames Sensor will detect
+-Either Mq-2 Sensor or Flames Sensor detects, the relay will convey the signal to the mini dc submersible water to spray water.

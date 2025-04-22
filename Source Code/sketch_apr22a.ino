@@ -1,5 +1,5 @@
 /// real code I used on my product
-/// I put the LED for testing
+/// I put the LED for testing, replacing the mini dc submersible water that doesn't exist in Wokwi.com
 int ledGate = 2; /// FADE RED
 int ledGate2 = 7; /// FADE BLUE
 int analogPin = A0; /// MQ-2
