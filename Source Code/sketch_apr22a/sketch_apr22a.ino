@@ -5,9 +5,35 @@ int ledGate2 = 7; /// FADE BLUE
 int analogPin = A0; /// MQ-2
 int analogPin1 = A1; /// LDR
 int smokeThreshold = 400; /// even clean air, always >= 200
-int lightThreshold = 600; /// light value
+int lightThreshold = 700; /// light value
 int relayGate = 8; /// pink
 int buzzerGate = 11; /// brown, passive
+
+/// just some fun:>
+void playTone(int frequency, int duration) {
+  tone(buzzerGate, frequency);
+  delay(duration);  
+  noTone(buzzerGate);
+  delay(50); // short pause between notes
+}
+
+void playMelody() {
+  playTone(262, 400); // C
+  playTone(262, 400); // C
+  playTone(392, 400); // G
+  playTone(392, 400); // G
+  playTone(440, 400); // A
+  playTone(440, 400); // A
+  playTone(392, 800); // G
+
+  playTone(349, 400); // F
+  playTone(349, 400); // F
+  playTone(330, 400); // E
+  playTone(330, 400); // E
+  playTone(294, 400); // D
+  playTone(294, 400); // D
+  playTone(262, 800); // C
+}
 
 void setup() {
   // put your setup code here, to run once:
@@ -16,6 +42,7 @@ void setup() {
   pinMode(ledGate2, OUTPUT);
   pinMode(relayGate, OUTPUT);
   pinMode(buzzerGate, OUTPUT);
+  noTone(buzzerGate);
 }
 
 void loop() {
@@ -43,7 +70,7 @@ void loop() {
     digitalWrite(relayGate, HIGH);
   }
   /// BUZZER AREA
-  if (mq2analogValue > smokeThreshold || ldranalogValue <= lightThreshold) {
+  if (ldranalogValue <= lightThreshold || mq2analogValue > smokeThreshold) {
     digitalWrite(relayGate, LOW);
     tone(buzzerGate, 1000);
   }
