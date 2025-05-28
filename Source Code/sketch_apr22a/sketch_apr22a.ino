@@ -4,8 +4,8 @@ int ledGate = 2; /// FADE RED
 int ledGate2 = 7; /// FADE BLUE
 int analogPin = A0; /// MQ-2
 int analogPin1 = A1; /// LDR
-int smokeThreshold = 150; /// even clean air, always >= 200
-int lightThreshold = 700; /// light value
+int smokeThreshold = 120; /// even clean air, always >= 200
+int lightThreshold = 80; /// light value
 int relayGate = 8; /// pink
 int buzzerGate = 11; /// brown, passive
 
@@ -50,6 +50,8 @@ void loop() {
   /// SENSORS AREA
   int mq2analogValue = analogRead(analogPin);
   int ldranalogValue = analogRead(analogPin1);
+  /// Serial.println(ldranalogValue);
+ /// string value = mq2analogValue;
   Serial.println(mq2analogValue);
   /// SMOKE
   if (mq2analogValue > smokeThreshold) {
